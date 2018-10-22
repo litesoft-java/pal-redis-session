@@ -1,0 +1,9 @@
+applications:
+- name: remove-session-state
+  path: ./target/remove-session-state-lab.war
+  routes:
+  - route: redis-pal-graham-george.apps.evans.pal.pivotal.io
+  memory: 1G
+  instances: 2
+  services:
+  - my-reddis
