@@ -1,6 +1,5 @@
 package io.pivotal.pal;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+@SuppressWarnings("FieldCanBeLocal")
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private final String username = "palstudent@pivotal.io";
@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
     private final Integer INACTIVITY_TIMEOUT = 30 * 60;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String submittedUsername = req.getParameter("username");
         String submittedPassword = req.getParameter("password");
 
